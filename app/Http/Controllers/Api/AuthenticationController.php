@@ -42,7 +42,7 @@ class AuthenticationController extends Controller
         return response()->json([
             'message' => 'The provided email and password do not match our records.',
             'success' => false,
-        ], 422);
+        ], 401);
     }
 
     /**
