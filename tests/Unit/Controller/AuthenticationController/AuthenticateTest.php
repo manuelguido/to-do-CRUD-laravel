@@ -110,6 +110,6 @@ class AuthenticateTest extends TestCase
         // Assert that the response is a JsonResponse
         $this->assertInstanceOf(JsonResponse::class, $response);
         // Assert that the response has 200 response code
-        $this->assertEquals(422, $response->getStatusCode());
+        $this->assertEquals(401, $response->getStatusCode());
     }
 }
