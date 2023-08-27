@@ -1,6 +1,6 @@
 <template>
 	<form @submit.prevent="logout">
-		<v-btn color="teal-lighten-1" type="submit" variant="flat">{{ buttonText }}</v-btn>
+		<v-btn color="teal-darken-4" type="submit" variant="outlined" append-icon="mdi-logout" size="large">{{ buttonText }}</v-btn>
 	</form>
 </template>
 
