@@ -9,12 +9,15 @@
         "@vitejs/plugin-vue": "^4.3.3",
         "axios": "^1.1.2",
         "laravel-vite-plugin": "^0.8.0",
-        "vite": "^4.0.0"
+        "vite": "^4.0.0",
+        "vitest": "^0.34.3"
     },
     "dependencies": {
         "vite-plugin-vuetify": "^1.0.2",
         "vue": "^3.2.36",
         "vue-loader": "^17.2.2",
-        "vue-router": "^4.0.13"
+        "vue-router": "^4.0.13",
+        "vuex": "^4.1.0",
+        "vuex-persistedstate": "^4.1.0"
     }
 }
