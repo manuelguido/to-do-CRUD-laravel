@@ -27,6 +27,7 @@ class TodoItem extends Model
     protected $fillable = [
         'name',
         'is_finished',
+        'user_id',
     ];
 
     /**
