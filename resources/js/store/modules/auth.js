@@ -1,14 +1,10 @@
 const state = {
     user: null, // User is not authenticated initially
-    token: null, // User PASSPORT authentication token
 };
 
 const mutations = {
     setUser(state, user) {
         state.user = user;
-    },
-    setToken(state, token) {
-        state.token = token;
     },
     clearUser(state) {
         state.user = null;
@@ -19,7 +15,6 @@ const mutations = {
 const actions = {
     login({ commit }, userData) {
         commit('setUser', userData.user);
-        commit('setToken', userData.access_token);
     },
     logout({ commit }) {
         commit('clearUser');
@@ -27,8 +22,7 @@ const actions = {
 };
 
 const getters = {
-    isAuthenticated: (state) => !!state.user && !!state.token,
-    getToken: (state) => state.token,
+    isAuthenticated: (state) => !!state.user,
     user: (state) => state.user,
 };
 

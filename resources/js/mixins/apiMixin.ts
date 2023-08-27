@@ -1,6 +1,11 @@
 import axios, { AxiosResponse } from 'axios';
 
 const apiMixin = {
+  mounted() {
+    axios.defaults.withCredentials = true;
+    axios.defaults.headers.common['Accept'] = "application/json"
+  },
+
   methods: {
     async $httpGet<T>(url: string, params?: any): Promise<AxiosResponse<T>> {
       try {
