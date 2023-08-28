@@ -93,5 +93,5 @@ php artisan test
 To run JavaScript tests, use the following command on a new terminal tab
 
 ```bash
-php artisan test
+npm run test
 ```
