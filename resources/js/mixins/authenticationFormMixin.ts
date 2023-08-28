@@ -3,8 +3,10 @@
 | This Mixin defines common data handled by Login and Register forms
 |--------------------------------------------------------------------------
 */
+import apiMixin from "./apiMixin"
 
 const authenticationFormMixin = {
+  mixin: [apiMixin],
   data() {
     return {
       email: "" as string,
@@ -26,6 +28,21 @@ const authenticationFormMixin = {
         },
       ] as Array<Function>,
     }
+  },
+  mounted() {
+    this.requestToken
+  },
+  methods: {
+    // Request Sanctum CSRF cookie
+    async requestToken(): Promise<any> {
+      this.$httpGet('/sanctum/csrf-cookie')
+        .then((response: any) => {
+          console.log(response)
+        })
+        .catch((error) => {
+          this.error = error.response.data.message;
+        });
+    },
   }
 };
 
