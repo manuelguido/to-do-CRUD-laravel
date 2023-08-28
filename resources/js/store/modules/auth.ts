@@ -1,14 +1,15 @@
+import { User } from "../../models/user.model";
+
 const state = {
-    user: null, // User is not authenticated initially
+    user: null as User, // User is not authenticated initially
 };
 
 const mutations = {
-    setUser(state, user) {
+    setUser(state: { user: User }, user: User) {
         state.user = user;
     },
-    clearUser(state) {
+    clearUser(state: { user: User }) {
         state.user = null;
-        state.token = null;
     },
 };
 
@@ -18,6 +19,8 @@ const actions = {
     },
     logout({ commit }) {
         commit('clearUser');
+        localStorage.clear();
+
     },
 };
 
