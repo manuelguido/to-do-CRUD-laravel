@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 
 const apiMixin = {
   mounted() {
@@ -12,6 +12,7 @@ const apiMixin = {
         const response: AxiosResponse<T> = await axios.get(url, { params });
         return response;
       } catch (error) {
+        this.handleAxiosError(error);
         throw error;
       }
     },
@@ -21,6 +22,7 @@ const apiMixin = {
         const response: AxiosResponse<T> = await axios.post(url, data);
         return response;
       } catch (error) {
+        this.handleAxiosError(error);
         throw error;
       }
     },
@@ -30,6 +32,7 @@ const apiMixin = {
         const response: AxiosResponse<T> = await axios.patch(url, data);
         return response;
       } catch (error) {
+        this.handleAxiosError(error);
         throw error;
       }
     },
@@ -39,9 +42,18 @@ const apiMixin = {
         const response: AxiosResponse<T> = await axios.delete(url);
         return response;
       } catch (error) {
+        this.handleAxiosError(error);
         throw error;
       }
-    }
+    },
+
+    // Common error handling method
+    handleAxiosError(error: AxiosError) {
+      if (error.response && error.response.status === 401) {
+        this.$store.dispatch("auth/logout");
+        this.$router.push("/login");
+      }
+    },
   },
 }
 
