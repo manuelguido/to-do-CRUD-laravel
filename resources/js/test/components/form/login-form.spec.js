@@ -2,21 +2,25 @@ import { it, expect, test } from "vitest";
 import { mount } from '@vue/test-utils';
 import LoginForm from '../../../components/form/login-form.vue';
 
-const wrapper = mount(LoginForm);
-
 test("login form is rendered correctly", () => {
+  // Mount Wrapper
+  const wrapper = mount(LoginForm);
+
   // Form renders correctly
   expect(wrapper.find("form").exists()).toBe(true);
 
   // Button renders correctly
   expect(wrapper.find("v-btn").exists()).toBe(true);
-  
+
   // Input fields render correctly and there are 2
   const textFields = wrapper.findAll('v-text-field');
   expect(textFields.length).toBe(2);
 });
 
 it('does not submit the form when inputs are empty', async () => {
+  // Mount Wrapper
+  const wrapper = mount(LoginForm);
+
   // Set empty email and password
   await wrapper.setData({ email: '', password: '' });
 

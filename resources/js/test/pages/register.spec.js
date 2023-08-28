@@ -4,7 +4,7 @@ import Register from '../../pages/register.vue';
 
 test('RegisterPage', () => {
   it('renders the register form', async () => {
-    // Mount the LoginContainer component
+    // Mount Wrapper
     const wrapper = mount(Register);
 
     // Check if register form component is rendered

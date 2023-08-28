@@ -2,9 +2,10 @@ import { it, expect, test } from "vitest";
 import { mount } from '@vue/test-utils';
 import RegisterForm from '../../../components/form/register-form.vue';
 
-const wrapper = mount(RegisterForm);
-
 test("register form is rendered correctly", () => {
+  // Mount Wrapper
+  const wrapper = mount(RegisterForm);
+
   // Form renders correctly
   expect(wrapper.find("form").exists()).toBe(true);
 
@@ -17,6 +18,9 @@ test("register form is rendered correctly", () => {
 });
 
 it('does not submit the form when inputs are empty', async () => {
+  // Mount Wrapper
+  const wrapper = mount(RegisterForm);
+
   // Set empty name, email and password
   await wrapper.setData({ name: '', email: '', password: '' });
 

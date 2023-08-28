@@ -4,7 +4,7 @@ import Login from '../../pages/login.vue';
 
 test('LoginPage', () => {
   it('renders the login form', async () => {
-    // Mount the LoginContainer component
+    // Mount Wrapper
     const wrapper = mount(Login);
 
     // Check if login form component is rendered
