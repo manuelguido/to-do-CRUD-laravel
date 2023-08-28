@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import store from '@/store';
+import { useStore } from 'vuex';
 
 import home from '../pages/home.vue'
 import authenticationRoutes from './authenticationRoutes';
@@ -11,9 +11,10 @@ const routes = [
         component: home,
         // Check if the user is authenticated
         beforeEnter: (to, from, next) => {
-            (store.getters['auth/isAuthenticated'])
+            const store = useStore();
+            store.getters['auth/isAuthenticated']
                 ? next() // Authenticated: Allow access to home page
-                : next('/login');// Not authenticated: redirect to the login page
+                : next('/login'); // Not authenticated: Redirect to the login page
         },
     },
     ...authenticationRoutes
@@ -22,7 +23,7 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes,
-    store,
 })
 
 export default router
+

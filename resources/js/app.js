@@ -3,7 +3,7 @@ import './bootstrap';
 // Vue setup
 import { createApp } from 'vue';
 import app from './App.vue';
-import router from './router/index.js'
+import router from './router/index.ts'
 import store from './store';
 
 // Vuetify setup

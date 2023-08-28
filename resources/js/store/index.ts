@@ -11,7 +11,7 @@ const store = createStore({
     },
     plugins: [
         createPersistedState({
-            storage: window.localStorage, // Use localStorage as the storage engine
+            storage: window.localStorage,
             paths: ['auth'],
         }),
     ],
