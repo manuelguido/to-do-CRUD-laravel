@@ -1,5 +1,5 @@
 
-# Vue Laravel Coding Challenge - Developed by Manuel Guido
+# To-do CRUD web application
 
 ## Download project
 
