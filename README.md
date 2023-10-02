@@ -14,7 +14,7 @@ To download the project open your terminal and run:
 Cd into the project folder
 
 ```bash
-cd vue-laravel-code-challenge
+cd to-do-CRUD-laravel
 ```
 
 Install composer dependencies
