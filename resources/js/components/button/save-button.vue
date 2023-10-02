@@ -1,5 +1,5 @@
 <template>
-	<v-btn color="teal-darken-4" type="submit" size="x-large" block variant="flat">
+	<v-btn color="blue-grey-darken-1" type="submit" size="x-large" block variant="flat">
 		{{ text }}
 	</v-btn>
 </template>
