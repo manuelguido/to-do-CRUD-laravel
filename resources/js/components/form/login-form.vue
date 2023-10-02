@@ -1,11 +1,6 @@
 <template>
     <main class="outer-container">
-        <div
-            class="brand-container d-flex flex-column justify-center align-center"
-        >
-            <div class="logo text-blue-grey-darken-3">TO-DO APP</div>
-            <div class="logo-under text-blue-grey-lighten-3">(Laravel + Vue)</div>
-        </div>
+        <brand-container />
 
         <div
             class="form-container d-flex flex-column justify-center align-center"
@@ -37,13 +32,12 @@
             <!-- /.Form -->
 
             <!-- Register route -->
-            <p class="ma-0 text-white">
-                Don't have an account yet?
-                <router-link to="/register" class="text-white"
-                    >Register</router-link
-                >
-            </p>
+            <redirect-link
+                message="Don't have an account yet?"
+                :route="{ url: '/register', text: 'Register' }"
+            />
             <!-- /.Register route -->
+
             <v-alert v-if="error" type="warning" :text="error" class="mt-4" />
         </div>
     </main>
@@ -54,11 +48,15 @@ import { defineComponent } from "vue";
 import saveButton from "../button/save-button.vue";
 import authenticationFormMixin from "../../mixins/authenticationFormMixin";
 import apiMixin from "../../mixins/apiMixin";
+import brandContainer from "./brand-container.vue";
+import redirectLink from "./redirect-link.vue";
 
 export default defineComponent({
     mixins: [apiMixin, authenticationFormMixin],
     components: {
         saveButton,
+        brandContainer,
+        redirectLink,
     },
     data() {
         return {
@@ -99,29 +97,14 @@ export default defineComponent({
     -webkit-backdrop-filter: blur(20px);
 }
 
-.brand-container,
 .form-container {
     width: 50%;
     height: 100%;
     /* padding: 5rem; */
 }
 
-.brand-container {
-    background: rgba(255, 255, 255, 1);
-}
-
-.logo {
-    font-weight: 800;
-    font-size: 50pt;
-}
-
-.logo-under {
-    font-weight: 800;
-    font-size: 25pt;
-}
-
 form {
-  width: 100%;
-  padding: 0 5rem;
+    width: 100%;
+    padding: 0 5rem;
 }
 </style>
