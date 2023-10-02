@@ -27,7 +27,7 @@ class AuthenticationController extends Controller
             $user = Auth::user();
 
             // Generate user token with Sanctum
-            $token = $user->createToken('MyAppToken')->plainTextToken;
+            $token = $user->createToken('Todo App')->plainTextToken;
 
             // Success Response
             return response()->json([
@@ -64,7 +64,7 @@ class AuthenticationController extends Controller
         $user->save();
     
         // Generate user token
-        $token = $user->createToken('MyAppToken')->plainTextToken;
+        $token = $user->createToken('Todo App')->plainTextToken;
     
         // Success Response
         return response()->json([
