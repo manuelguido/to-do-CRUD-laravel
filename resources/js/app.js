@@ -16,7 +16,7 @@ import { fa } from "vuetify/iconsets/fa";
 import { aliases, mdi } from "vuetify/lib/iconsets/mdi";
 import "@mdi/font/css/materialdesignicons.css";
 import "@fortawesome/fontawesome-free/css/all.css";
-import "../css/custom/index.css";
+import "../scss/index.scss";
 
 const vuetify = createVuetify({
   theme: {
