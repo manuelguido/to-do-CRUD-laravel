@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'google_id',
     ];
 
     /**
@@ -45,9 +46,21 @@ class User extends Authenticatable
 
     /**
      * Get the to do lists for the user.
+     * 
+     * @return HasMany
      */
     public function todoItems(): HasMany
     {
         return $this->hasMany(TodoItem::class);
+    }
+
+    /**
+     * Get the to do lists for the user.
+     * 
+     * @return HasMany
+     */
+    public function providers(): HasMany
+    {
+        return $this->hasMany(Provider::class, 'user_id', 'id');
     }
 }

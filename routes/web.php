@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +11,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('app');
-});
-
-Route::get('/{pathMatch}', function () {
-    return view('app');
-})->where('pathMatch', '.*');
+require __DIR__ . '/web/authentication-provider.php';
+require __DIR__ . '/web/public.php';

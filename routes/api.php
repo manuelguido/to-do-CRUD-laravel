@@ -14,4 +14,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 require __DIR__ . '/api/authentication.php';
+require __DIR__ . '/api/authentication-provider.php';
 require __DIR__ . '/api/todo-item.php';
