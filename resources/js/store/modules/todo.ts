@@ -10,6 +10,11 @@ const mutations = {
         state.todos.push(todo);
     },
 
+    // Add to-do to state
+    addTodos(state: { todos: TodoItem[] }, todos: TodoItem[]) {
+        state.todos = todos;
+    },
+
     // Remove to-do from state by index
     removeTodo(state: { todos: TodoItem[] }, todoId: number) {
         const index = state.todos.findIndex((t) => t.id === todoId);
