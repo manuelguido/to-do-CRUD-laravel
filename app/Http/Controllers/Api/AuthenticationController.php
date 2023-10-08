@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthenticateRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use Auth;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthenticationController extends Controller
@@ -59,13 +59,13 @@ class AuthenticationController extends Controller
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')), // Hash the password
         ]);
-    
+
         // Store user
         $user->save();
-    
+
         // Generate user token
         $token = $user->createToken('Todo App')->plainTextToken;
-    
+
         // Success Response
         return response()->json([
             'message' => 'User registered successfully',
@@ -82,13 +82,11 @@ class AuthenticationController extends Controller
      */
     public function logout(Request $request): JsonResponse
     {
-        // Get user
-        $user = $request->user();
+        $request->session()->invalidate();
 
-        // If user exists destroy token
-        if ($user) {
-            $user->tokens()->delete(); // Revoke all user's tokens
-        }
+        auth()->user()->tokens->each(function ($token, $key) {
+            $token->delete();
+        });
 
         // Success Response
         return response()->json([
