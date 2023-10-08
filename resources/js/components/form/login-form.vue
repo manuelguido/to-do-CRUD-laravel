@@ -10,7 +10,7 @@
             <!-- /.Title -->
 
             <!-- Form -->
-            <form @submit.prevent="login" class="mb-6">
+            <form @submit.prevent="login" class="mb-10">
                 <v-text-field
                     v-model="email"
                     label="Email"
@@ -28,6 +28,12 @@
                     class="text-white"
                 />
                 <save-button text="Login" />
+
+                <div class="my-10 text-center">
+                    <hr />
+                    <p class="text-white my-5">or login with</p>
+                    <google-login-button />
+                </div>
             </form>
             <!-- /.Form -->
 
@@ -50,6 +56,7 @@ import authenticationFormMixin from "../../mixins/authenticationFormMixin";
 import apiMixin from "../../mixins/apiMixin";
 import brandContainer from "./brand-container.vue";
 import redirectLink from "./redirect-link.vue";
+import googleLoginButton from "../button/social-auth/google.vue";
 
 export default defineComponent({
     mixins: [apiMixin, authenticationFormMixin],
@@ -57,6 +64,7 @@ export default defineComponent({
         saveButton,
         brandContainer,
         redirectLink,
+        googleLoginButton,
     },
     data() {
         return {

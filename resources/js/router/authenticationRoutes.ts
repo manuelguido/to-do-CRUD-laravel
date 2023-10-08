@@ -1,8 +1,10 @@
 import { RouteRecordRaw } from 'vue-router';
 import store from '../store';
 
-import login from '../pages/login.vue';
-import register from '../pages/register.vue';
+import authGoogle from '../pages/auth/google.vue';
+import login from '../pages/auth/login.vue';
+import loginGoogleCallback from '../pages/login/google-callback.vue';
+import register from '../pages/auth/register.vue';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -26,6 +28,22 @@ const routes: RouteRecordRaw[] = [
         ? next('/') // Authenticated: User cannot access the register page
         : next(); // Not authenticated: Can access the register page
     },
+  },
+  {
+    path: "/auth/google",
+    name: "AuthGoogle",
+    component: authGoogle,
+    // Check if the user is not authenticated
+    beforeEnter: (to, from, next) => {
+      store.getters['auth/isAuthenticated']
+        ? next('/') // Authenticated: User cannot access the login page
+        : next(); // Not authenticated: Can access the login page
+    },
+  },
+  {
+    path: "/login/google/callback",
+    name: "LoginGoogleCallback",
+    component: loginGoogleCallback,
   },
 ];
 
