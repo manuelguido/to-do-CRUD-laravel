@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import loginForm from "../components/form/login-form.vue";
+import loginForm from "../../components/form/login-form.vue";
 
 export default defineComponent({
     components: {
